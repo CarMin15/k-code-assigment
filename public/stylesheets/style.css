@@ -1,0 +1,110 @@
+/*** 1. Subject Day ***/
+/*** 2. Subject Session ***/
+/*** 3. Subject Photo ***/
+/*** 4. Subject Description ***/
+/*** 5. Instructor Info & Time ****/
+
+body {
+  background: #F7F7Fa;
+  color: #888888;
+  padding: 50px;
+  margin: 50px 100px;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+
+/*** Subject Day ***/
+
+#container > .day {
+  color: #666;
+  font-size: 1.25em;
+}
+
+
+/*** Subject Session ***/
+
+#container > ul.session_list {
+  background: #FFF;
+  padding: 0;
+    margin: 20px 0px 40px 0px;
+}
+
+ul.session_list > .subject_session {
+  background: #FFF;
+  display: table;
+  border: 1px solid #F1F1F3;
+  padding: 10px;
+}
+
+ul.session_list > .subject_session > section {
+  display: table-row;
+}
+
+.subject_session > section > div, time {
+  display: table-cell;
+  padding: 15px;
+  vertical-align: top;
+}
+
+
+/*** Subject Photo ***/
+
+.subject_session > section > .subject_photo_wrapper {
+  width: 40px;
+  padding-right: 0;
+  padding: 15px;
+}
+
+.subject_session > section > .subject_photo_wrapper > .subject_photo {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 50%;
+  display: table-cell;
+}
+
+
+/*** Subject Description ***/
+
+.subject_session > section > .description > h3 {
+  margin-top: 0;
+  color: #333;
+  font-weight: bold;
+  padding-bottom: 20px;
+  font-size: 1em;
+}
+
+.subject_session > section > .description > summary {
+  color: #333;
+  line-height: 25px;
+}
+
+
+/*** Instructor Info & Time ***/
+
+.subject_session > section > .instructor_info, .subject_session > section > time {
+  width: 160px;
+  white-space: nowrap;
+}
+
+.subject_session > section > .instructor_info > img {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 50%;
+  float: left;
+}
+
+.subject_session > section > .instructor_info > .instructor_name {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 10px;
+  color: #666;
+  font-size: 0.93em;
+}
+
+.subject_session > section > time {
+  color: #666;
+  font-weight: bold;
+}

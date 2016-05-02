@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  div#container
+  
+  script#session-template(type='text/x-handlebars-template').
+    <li class="subject_session">
+      <section>
+        <div class="subject_photo_wrapper">
+          <img class="subject_photo" src="{{subjectPhotoUrl}}", alt="Subject Photo">
+        </div>
+        <div class="description">
+          <h3>{{title}}</h3>
+          <summary>{{description}}</summary>
+        </div>
+        <div class="instructor_info">
+          <img src="{{instructorPhotoUrl}}", alt="Instructor Photo">
+          <span class="instructor_name">{{instructorName}}</span>
+        </div>
+        <time datatime="{{time}}" class="time">
+          {{startTime}} - {{endTime}} EDT
+        </time>
+      </section>
+    </li>
+    
+        
+  script(type='text/javascript').
+    window.channel = !{channelStr};
