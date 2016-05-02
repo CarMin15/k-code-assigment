@@ -1,13 +1,19 @@
 $(function() {
-  var channel = window.channel,
-      newChannel = {};
+  var newChannel = {},
+      channel = window.channel,
+      sessionsTemplateHTML = $("#sessions-template").html(),
+      sessionsTemplate = Handlebars.compile(sessionsTemplateHTML)
 
+  // Create a new channel object that groups same day sessions together
   channel.forEach(function(item, i) {
     var time = moment(item.time, "YYYY-MM-DD HH:mm:ss");
+
+    // Define new properties for Handlebars
     item.parsedTime = time;
-    date = item.parsedTime.format("YYYY-MM-DD");
     item.startTime = time.format("hh:mm A");
     item.endTime = time.add(1, 'hour').format("hh:mm A");
+
+    date = item.parsedTime.format("YYYY-MM-DD");
 
     if (newChannel[date] == undefined)
       newChannel[date] = {
@@ -18,16 +24,15 @@ $(function() {
     newChannel[date].items.push(item);
   });
 
-
-  var sessionsTemplateHTML = $("#sessions-template").html();
-  var sessionsTemplate = Handlebars.compile(sessionsTemplateHTML);
-
+  // Sort the associative array by date
   var keys = Object.keys(newChannel),
              len = keys.length;
 
   keys.sort();
 
   for (i = 0; i < len; i++) {
-    $('main').append(sessionsTemplate(newChannel[keys[i]]))
+    // Render the template and append it to the page
+    var sessionHTML = sessionsTemplate(newChannel[keys[i]]);
+    $('main').append(sessionHTML);
   }
 });
