@@ -11,24 +11,23 @@ $(function() {
 
     if (newChannel[date] == undefined)
       newChannel[date] = {
-        parsedTime: item.parsedTime,
+        parsedTime: item.parsedTime.format("dddd, LL"),
         items: []
       };
 
     newChannel[date].items.push(item);
   });
 
-  var sessionTemplateHTML = $("#session-template").html();
-  var sessionTemplate = Handlebars.compile(sessionTemplateHTML);
-  for (var day in newChannel) {
-    if (newChannel.hasOwnProperty(day)) {
-      $('<time class="day" />').html(newChannel[day].parsedTime.format("dddd, LL")).appendTo("#container");
-      var ul = $("<ul />").addClass("session_list");
-      newChannel[day].items.forEach(function(item) {
-        ul.append(sessionTemplate(item));
-      })
-      ul.appendTo("#container");
 
-    }
+  var sessionsTemplateHTML = $("#sessions-template").html();
+  var sessionsTemplate = Handlebars.compile(sessionsTemplateHTML);
+
+  var keys = Object.keys(newChannel),
+             len = keys.length;
+
+  keys.sort();
+
+  for (i = 0; i < len; i++) {
+    $('main').append(sessionsTemplate(newChannel[keys[i]]))
   }
 });

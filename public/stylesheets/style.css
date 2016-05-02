@@ -5,43 +5,47 @@
 /*** 5. Instructor Info & Time ****/
 
 body {
-  background: #F7F7Fa;
   color: #888888;
-  padding: 50px;
-  margin: 50px 100px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #F7F7Fa;
   font-size: 14px;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+main {
+  width: 80%;
+  margin: 50px auto;
 }
 
 
 /*** Subject Day ***/
 
-#container > .day {
+.day_sessions{
   color: #666;
-  font-size: 1.25em;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 
 /*** Subject Session ***/
 
-#container > ul.session_list {
+ul.sessions {
   background: #FFF;
   padding: 0;
-    margin: 20px 0px 40px 0px;
+  margin: 20px 0px 40px 0px;
 }
 
-ul.session_list > .subject_session {
+.session {
   background: #FFF;
   display: table;
   border: 1px solid #F1F1F3;
   padding: 10px;
 }
 
-ul.session_list > .subject_session > section {
+.session > section {
   display: table-row;
 }
 
-.subject_session > section > div, time {
+.session > section > div, .session > section > time {
   display: table-cell;
   padding: 15px;
   vertical-align: top;
@@ -50,13 +54,13 @@ ul.session_list > .subject_session > section {
 
 /*** Subject Photo ***/
 
-.subject_session > section > .subject_photo_wrapper {
+.session_pic {
   width: 40px;
   padding-right: 0;
   padding: 15px;
 }
 
-.subject_session > section > .subject_photo_wrapper > .subject_photo {
+.session_pic > img {
   width: 40px;
   height: 40px;
   display: inline-block;
@@ -67,7 +71,7 @@ ul.session_list > .subject_session > section {
 
 /*** Subject Description ***/
 
-.subject_session > section > .description > h3 {
+.session_desc > h3 {
   margin-top: 0;
   color: #333;
   font-weight: bold;
@@ -75,7 +79,7 @@ ul.session_list > .subject_session > section {
   font-size: 1em;
 }
 
-.subject_session > section > .description > summary {
+.session_desc > summary {
   color: #333;
   line-height: 25px;
 }
@@ -83,12 +87,12 @@ ul.session_list > .subject_session > section {
 
 /*** Instructor Info & Time ***/
 
-.subject_session > section > .instructor_info, .subject_session > section > time {
+.session_instructor, .session_time {
   width: 160px;
   white-space: nowrap;
 }
 
-.subject_session > section > .instructor_info > img {
+.session_instructor > img {
   width: 40px;
   height: 40px;
   display: inline-block;
@@ -96,7 +100,7 @@ ul.session_list > .subject_session > section {
   float: left;
 }
 
-.subject_session > section > .instructor_info > .instructor_name {
+.session_instructor > .name {
   display: inline-block;
   font-weight: bold;
   margin-left: 10px;
@@ -104,7 +108,7 @@ ul.session_list > .subject_session > section {
   font-size: 0.93em;
 }
 
-.subject_session > section > time {
+.session_time {
   color: #666;
   font-weight: bold;
 }

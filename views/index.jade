@@ -1,27 +1,32 @@
 extends layout
 
 block content
-  div#container
+  main
   
-  script#session-template(type='text/x-handlebars-template').
-    <li class="subject_session">
-      <section>
-        <div class="subject_photo_wrapper">
-          <img class="subject_photo" src="{{subjectPhotoUrl}}", alt="Subject Photo">
-        </div>
-        <div class="description">
-          <h3>{{title}}</h3>
-          <summary>{{description}}</summary>
-        </div>
-        <div class="instructor_info">
-          <img src="{{instructorPhotoUrl}}", alt="Instructor Photo">
-          <span class="instructor_name">{{instructorName}}</span>
-        </div>
-        <time datatime="{{time}}" class="time">
-          {{startTime}} - {{endTime}} EDT
-        </time>
-      </section>
-    </li>
+  script#sessions-template(type='text/x-handlebars-template').
+    <time class="day_sessions">{{parsedTime}}</time>
+    <ul class="sessions">
+      {{#each items}}
+        <li class="session">
+          <section>
+            <div class="session_pic">
+              <img src="{{subjectPhotoUrl}}", alt="Subject Photo">
+            </div>
+            <div class="session_desc">
+              <h3>{{title}}</h3>
+              <summary>{{description}}</summary>
+            </div>
+            <div class="session_instructor">
+              <img src="{{instructorPhotoUrl}}", alt="Instructor Photo">
+              <span class="name">{{instructorName}}</span>
+            </div>
+            <time datatime="{{time}}" class="session_time">
+              {{startTime}} - {{endTime}} EDT
+            </time>
+          </section>
+        </li>
+      {{/each}}
+    </ul>
     
         
   script(type='text/javascript').
