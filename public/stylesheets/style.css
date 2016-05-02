@@ -23,6 +23,8 @@ main {
   color: #666;
   font-size: 1em;
   font-weight: bold;
+  margin: 30px 0px 15px 0px;
+  display: block;
 }
 
 
@@ -31,13 +33,12 @@ main {
 ul.sessions {
   background: #FFF;
   padding: 0;
-  margin: 20px 0px 40px 0px;
 }
 
 .session {
   background: #FFF;
   display: table;
-  border: 1px solid #F1F1F3;
+  border: 1px solid #EBEBEE;
   padding: 10px;
 }
 
@@ -111,4 +112,19 @@ ul.sessions {
 .session_time {
   color: #666;
   font-weight: bold;
+}
+
+.session_time > span {
+  white-space: nowrap;
+}
+
+
+@media (max-width: 1024px) {
+  .session_time {
+    white-space: normal;
+  }
+
+  .session_time > span {
+    white-space: nowrap;
+  }
 }
